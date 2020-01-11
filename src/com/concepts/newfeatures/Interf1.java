@@ -7,5 +7,5 @@ public interface Interf1 {
 	default void m2() {
 		System.out.println("Default method implementation");
 	}
-
+	
 }
