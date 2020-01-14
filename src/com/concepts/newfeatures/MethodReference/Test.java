@@ -10,7 +10,6 @@ public class Test {
 	
 	public static void main(String[] args) {
 		Runnable r = Test::m1;
-		
 		Thread t = new Thread(r);
 		t.start();
 		
