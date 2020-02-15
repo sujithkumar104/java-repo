@@ -10,8 +10,8 @@ public class SynchDemo {
 		t1.start();
 		t2.start();
 		
-		// If we keep synch(this) current object, then it is based on object level lock, result: inconsistent results
-		// If we keep synch(Display.class), then it becomes like class level lock, then result would be consistent results
+		// If we keep synch(this) current object, then it is based on object level lock, result: inconsistent results.
+		// If we keep synch(Display.class), then it becomes like class level lock, then result would be consistent results.
 	}
 
 }
