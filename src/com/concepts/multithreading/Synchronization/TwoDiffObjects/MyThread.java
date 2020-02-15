@@ -11,7 +11,7 @@ public class MyThread extends Thread{
 	}
 	
 	public void run() {
-		d.wish(name);
+		Display.wish(name);
 	}
 	
 }
