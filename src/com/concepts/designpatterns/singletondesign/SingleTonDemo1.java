@@ -15,11 +15,7 @@ public class SingleTonDemo1 {
 		     }
 		     
 		     MySingleTonLazy obj3 = MySingleTonLazy.getObj();
-		     
-		     try {
-		    	 Thread.sleep(5000);
-		     }catch(InterruptedException ie) {}
-		     
+		     	     
 		     MySingleTonLazy obj4 = MySingleTonLazy.getObj();
 		     
 		     if(obj3 == obj4) {

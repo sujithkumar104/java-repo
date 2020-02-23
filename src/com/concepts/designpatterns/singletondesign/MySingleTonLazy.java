@@ -12,7 +12,7 @@ public class MySingleTonLazy {
 		if(obj == null) {
 			synchronized (MySingleTonLazy.class) {
 				if(obj == null) {
-					return new MySingleTonLazy();
+					obj = new MySingleTonLazy();
 				}
 			}
 		} 
