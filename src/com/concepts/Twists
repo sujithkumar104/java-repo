@@ -1,0 +1,41 @@
+1) If two classes present, one parent class and child class and has IS-A relationship and have a test class
+   P has m1() method, and C has m2() method
+   where you create a object like P p = new C(); then you cannot access p.m2() method.
+   
+2) Auto Promotion in overloading
+
+   Order: byte -> short
+                         -> Int -> long -> float -> double  
+          char  ->         
+          
+ 3) Overloading: If String and Object accepting two different method arguments are present; same method name, if you pass null
+      then which method would be invoked -> String method. Child class takes priority
+      
+ 4) Overloading: If String and StringBuffer accepting two different method arguments are present; same method name, if you pass null
+      then which method would be invoked -> 
+      Both String and StringBuffer both are in same level, in hiearchy with Object -> so compile time error.
+      
+
+ 5) In overriding, Child class overriden method, can change the return type from java 1.4 onwards
+     But, it can be CO-variant return types. i.e., child classes can be used
+     for Object Co-variant return type are -> any classes.
+     for Number co-variant return type are -> Integer
+     primitive data types are not allowed to change.
+ 
+ 6) Overriding -> related to access modifiers(public, protected, default, private)
+ 				Parent to child -> in child can increase scope (ex: from protected (Parent) to Public (Child))
+ 				
+ 7) Overriding -> related to exceptions
+ 				Parent to child -> in child can decrease scope (ex: from exception (Parent) to IOException (Child)) 		
+ 				
+ 				
+ 8) Overriding ->  with respective to Static methods.
+ 				   Overriding concept for static methods is not present, infact if we create a same method in child, then'
+ 			       it is called as method hiding.
+ 			       parent and child class has static void m1() method. P p = new C(); p.m1() -> would call parent m1() method.
+ 			       if non-static method then it is child method. but here it is parent m1 method would be invoked.
+ 9) 			       
+ 			       
+ 			       						
+ 				      
+                    
