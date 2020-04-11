@@ -34,8 +34,37 @@
  			       it is called as method hiding.
  			       parent and child class has static void m1() method. P p = new C(); p.m1() -> would call parent m1() method.
  			       if non-static method then it is child method. but here it is parent m1 method would be invoked.
- 9) 			       
+ 
+ 9) a. Overloading P p = new C(); p.m1(); would call parent method, bcoz overloading happens in compile time.
+    b. Overriding P p = new C(); p.m1(); would call child method, bcoz Overriding happens in run time.
+ 
+ 10) Overriding rules apply to only methods.
+ 		 	  	with respective to varibles
+ 		 	  	class P{ 
+ 		 	  	   int x = 888;
+ 		 	  	 }
+ 		 	  	 Class C {
+ 		 	  	    int x = 999;
+ 		 	  	 }  
+ 		 	  	 
+ 		 	  	 P p = new P(); p.x; // 888 ;;  C c = new C(); c.x; // 999 
+ 		 	  	 P p = new C(); p.x; // 888 ; variables we get based on reference type -> static or non static variables.
+ 		 	  	 
+ 11) You cannot create object for abstract classes, you have to extend abstract class and its child to create object.
+     when child creates the object, the first line of child constructor, compiler automatically injects super() to call abstract class constructor.
+     
+ 12) Abstract at class level:   Abstract class cannot be final. Abstract class cannot create object refer 11 point.
+     Abstract at method level:  Abstract method should not have implementation. Abstract method cannot be final or static or private. final means cannot override. static belongs to class.
+ 	 Constructors at  Abstract classes: Abstract classes can have constructors, refer point 11 for more details.
+ 	 
  			       
- 			       						
- 				      
-                    
+ 13) Interfaces: no implementation
+                 all methods in an interface are public and abstract
+                 any field (member) declared in interfaceis by default public static and final.
+ 			     Example: Created an Interface called Check and has one method validate, so 10 checks just implements Check(I) and
+ 			     write validate method implementation. While creating an object, based on check create object dynamically and pass that
+ 			     object to execute corresponding check.
+ 			     
+ 14)			     
+ 			      	      
+                               
