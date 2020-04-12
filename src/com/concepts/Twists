@@ -65,6 +65,119 @@
  			     write validate method implementation. While creating an object, based on check create object dynamically and pass that
  			     object to execute corresponding check.
  			     
- 14)			     
+ 14) Wrapper classes
+                Converting string to primitive datatypes
+                parseInt(String x);
+                parseDouble(String x);
+                
+                Converting string into wrapper classes
+                Long l = Long.valueof(String x);
+                
+  15) Arrays:
+                  int[] numbers = new int[5]; OR
+                  int[] numbers new int[]{1,2,3,4,5,6,7,8,9};         
+                  size is fixed, not auto growable, should go with array if we know size of the array. otherwise no use.
+                  Ready made methods not available, DATA structure is not good, compare to collections.
+                  
+                  
+  16) Collection: Growable in nature. Data structure is good. performance is good. Only Objects can hold.
+  				   Collection is interface.
+  				   Collections is class (utility class), which has Collections.sort(arraylist) method.
+  				   												   Collections.search()
+  				   												   
+  17) ArrayList: Growable array
+                 Duplicates allowed
+                 inertion order preserved
+                 Null insertion is possible												   
+  				 All collection by default implements serializable, clonable inerface
+  				 ArrayList and vector implements Random access interface
+  				 If we want to get 1st index or 20th index or 50000 index value it takes same time due to RandomAccess
+  				 For retrival purpose arraylist is better than linkedlist
+  				 If frequent operation is retrival then better to go arraylist
+  				 If add of any value in between and delete then we should not go for arralist, rather linkedlist is better.
+  				 If in between anything to be added, then array will shift all its index to righ,same happens with delete.
+  				 arraylist compare to vector, arraylist all methods are non-synchronized methods, while vector has all synch methods.            	     
+ 			     ArratList l1 = new ArrayList();
+ 			     List l = Collections.synchronizedList(l1);
+ 			     
  			      	      
-                               
+ 18) LinkedList: Growable array
+                 Duplicates allowed
+                 Insertion order preserved
+                 Null insertion possible
+                 doesnt implemenent RandomAccess
+                 implements serializable, clonable inerface   
+                 If we need to add new things in between or delete, then it is better to go with linkedlist
+                 It doesn't shift index like ArrayList. 
+                 Doubly linkedlist underlying data structure.
+  
+ 19) Vector is exactly same as arraylist. Only difference is all methods in vector is synchronized methods.
+      Vector v = new Vector();                 
+ 
+ 20) Stack: 
+ 			Child class of vector.
+ 			Stack s = new Stack();
+ 			Methods:
+ 			push, pop, peek; empty, search
+ 			
+ 21) Cursors of Java:
+ 		Iterator (for any collection object, can perform both read and remove operations)
+ 		Enumerator (applicable for vector and stack)
+ 		ListIterator				                                           
+ 		
+ 		Iterator itr  = l.iterator();
+ 		Methods: hasNext(), next(), remove()
+ 		
+ 		By using it itertor, Enumerator we can move forward only. so they call as Single direction cursors
+ 		Iterator, we can perform only read and remove operations. we cannot perform replacement of new objects.
+ 		To overcome, we have listIterator for list classes.
+ 		ListIterator is bi-directional cursor, move forward and also backward.
+ 		
+ 22) Set:
+       Hashset, LinkedHashset
+       SortedSet, Navigable set, Tree set.
+       Insertion order not preserved.
+       Duplicates are not allowed
+       only one null is allowed.
+       
+       HashSet (C): Data Structure HashTable
+                Insertion order not preserved, All objects inserted based on hashcode of objects.
+                implements serializable, clonable interface.
+                If search operation need to be done, then this is best interface.
+                Load Factor: 0.75 -> This means initial capacity is 10, when 75% of objects fills, then it creates new object with more capacity.
+                
+       LinkedHashSet (C): HashTable+LinkedList (data structure)
+        			  Insertion order is preserved
+        			  
+     
+       SortedSet (I): It is the child interface of set.
+                  Insert in some sorting order and duplicates are not allowed.
+                  Implemenation class of SortedSet is TreeSet 	
+                  
+      TreeSet (C): Data Struture for Treeset is balanced Tree.
+      			   Duplicates are not allowed.
+      			   Insertion order not preserved, will be sorted based on Comparator passed.
+      			   Null insertion is possible. only once.
+      			   
+      			   TreeSet t = new TreeSet(); // Default natural sorting order.
+      			   TreeSet t = new TreeSet(Comparator c); // Customized sorting order. 
+      			            	
+ 22) Comparable (Interface)
+  			java.lang.package
+  			one method -> public int compareTo(Object obj);
+  					obj1.compareTo(obj2);
+  					-ve iff obj1 has come before obj2
+  					+ve iff obj1 has come after obj2
+  					0 iff obj1 & obj2 are equal.
+  					All wrapper classes, String class implements Comparable interface and 
+  					in all wrapper classes and string class have implementation written for natural sorting order.
+  					
+ 23) Comparator (Interface)
+             Customized sorting order.
+             methods: compare and equals.
+             public int compare(Object obj1, Object obj2)
+             -ve iff obj1 has come before obj2
+  	      	 +ve iff obj1 has come after obj2
+  			 0 iff obj1 & obj2 are equal.
+  			 equals class implementation is optional, if you want specfic implementation, then you can implement.
+  			 If you dont implement then, no error will come bcoz Object class has equls method, so that get invoked.	
