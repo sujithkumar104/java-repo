@@ -180,4 +180,158 @@
   	      	 +ve iff obj1 has come after obj2
   			 0 iff obj1 & obj2 are equal.
   			 equals class implementation is optional, if you want specfic implementation, then you can implement.
-  			 If you dont implement then, no error will come bcoz Object class has equls method, so that get invoked.	
+  			 If you dont implement then, no error will come bcoz Object class has equls method, so that get invoked.
+  			 
+  24) JDK = JRE + Dev Tools
+      JRE  = JVM + Library classes
+      
+  
+  25) What is garbage collection in java?
+  		 	Garbage collection is the process of identifying used and unused objects on java heap and removing unused object from the heap.
+  		 	
+  
+  26) Functional Interface 
+  				if parent interface is functional interface annotated and child interface is not, child will not get @functional interface features.
+  				
+  27) Java 8, with respective to interfaces.
+  			1) Interface can have default methods
+  			2) Interface can have static methods.
+  			3) If you want to call interface method, then implemtation class object would call interface method.
+  			4) Implementation class can override interface default method, but not with default keyword.
+  			5) Default keyword applicable only for Interface.
+  			6) Left Interface and Right interface has same m1() default method and testdemo class implements left and right,
+  			   then it would give compile error. so you have to override m1() method in implementation class.
+  			   Inside the implementation class, we should use Left.super.m1(); or Right.super.m1(); based on our requirement.which one to call.
+  			7) Interface static method is allowed and to call them, only option is Interface.m1(); m1() here is static method for example.
+  			   
+  28) Functional Interfaces - Pre-Defined:
+  		 1) Predicate (1 argument and boolean return type)
+  		 2) Function  (1 argument and R(any) return type)
+  		 3) Consumer  (1 argument and no return type)
+  		 4) Supplier  (no argument and R(any) return type)
+  		 
+  		 2 Arguments:
+  		 1) BiPredicate (2 argument and boolean return type)
+  		 2) BiFunction  (2 argument and R(any) return type)
+  		 3) BiConsumer  (2 argument and no return type)
+  
+         
+         Function has some more:
+         		Unary Operator child of function
+         		If input argument and return type are same in function(1 one argument), then better to go with Unary Operator.
+         		
+         		Binary Operator
+         		If input arguments and return type are same in function(2 arguments), then better to go with Binary Operator.
+         		
+  29)  Method Reference
+              Key Point: No of argument(s) and argument types should match.
+              If above statement is true, then we can use that method for our requirement.
+              If method is static then use Classname:staticmethod otherwise object.method
+              Only Arguments should be same, rest everything like access modifier, return type can be changed.
+              
+ 			        		
+         		 
+  30) Streams: 
+  			 IO streams and java 8 streams are NOT SAME.
+  			 Stream can be used in list.
+  			 Filter is used to filter some results. (Conditional filter -> Predicate) list.stream.filter
+  			 Map is used to return the same count passed (Input list count and output list count should be same). list.stream.map
+  			 Filter and map also can be used together.
+  			 Stream<Integer> stream = Stream.of(1,2,3,4,5,6,7,8,9);
+  			 Stream<Integer> stream = Stream.of( new Integer[]{1,2,3,4,5,6,7,8,9} );
+  			 
+  			 Integer[] evenNumbersArr = stream.filter(i -> i%2 == 0).toArray(Integer[]::new); -> list to array
+  			 Stream(), filter(), map(), collect(), sorted()
+  			 sorted(comparator), min(comparator), max(comparator)
+  			 foreach(), toarray(), stream.of
+  			 
+  31) Java.time package:
+  			LocalDate date = LocalDate.now();
+  			int dd = date.getDayOfmonth();
+  			
+  			LocalTime time = LocalTime.now();
+  			
+  			LocalDateTime dt = new LocakDateTime.now();			 
+  			 
+  			 
+  32) String -- MOST IMPORTANT
+                
+                String Objects are immutable. (we cannot the value, if try to change a new string will be created in Heap)
+                StringBuffer objects are mutable. (we can change the value)
+                
+                if you do concat a string then you should assign the value to variable.
+                String s = new String("Sujith");
+                s.concat("Kumar"); // this is not assigned to any variable, so concat happens but it will not store.
+                sop(s); // Sujith
+                
+                s=s.concat("Kumar");// Sujith Kumar
+                ------------------------------------------------------------------------------------------------------------
+                String s1 = new String("Sujith");
+                String s2 = new String("Sujith");
+                syso(s1==s2); // false
+                syso(s1.equals(s2)); // true
+                
+                StringBuffer sb1 = new StringBuffer("Sujith");
+                StringBuffer sb2 = new StringBuffer("Sujith");
+                
+                syso(sb1==sb2); // false
+                syso(sb1.equals(sb2)); // false
+                
+                String class has overridden equals method, so string equals will do content comparison.
+                StringBuffer has not overridden equals method, so it uses Object class equals method which compares address/reference
+                == always compares address/reference
+                whenever we create any object with new keyword then new object will be created in Heap Memory and it would have own unique address/reference.
+                ----------------------------------------------------------------------------------------------------------------------
+                String s1 = new String("Sujith");
+                String s2 = s1;
+                syso(s1==s2); // true
+                syso(s1.equals(s2)); // true
+                ----------------------------------------------------------------------------------------------------------------------
+                
+  33) String -- CONTINUE             
+  					Heap and SCP (String constant pool):
+  					
+  					String s = new String("Sujith");
+  					
+  					Above statement will create 2 objects, one in Heap memory and other in scp area (But scp area it will not reference s, it will just create)
+  					Always with new one object will create in Heap memory
+  					Second, it will check in SCP, if Sujith is not there it will create in SCP area also same object.
+  					In SCP area it creates because of future purpose and object ref will be implicitly maintained by JVM, so it will not garbage collected.
+  					
+  					String s = "durga";
+  					In, SCP area it will check if string same already exists. If yes it will start referencing to it. Otherwise it will create and start referencing.
+  					
+  					-------
+  					String s1 = new String("durga");
+  					String s2 = new String("durga");
+  					String s3 = "durga"
+  					String s4 = "durga";
+  					In Heap it will create 2 objects S1 and S2 in Heap.
+  					S1 will create in SCP as well. and while creating S2 it will create in Heap and then checks in SCP if durga is present, yes then it will start refernecing.
+  					So s1 and s2 will be in Heap 
+  					s1,s2,s3,s4 will be referning to one object in SCP area.
+  					-------------------------------------------------------------------------------------------------------------------
+  					
+  					String s = new String("durga");
+  					s.concat("Software");
+  					s = s.concat("Solutions");
+  					
+  					first durga will be created in Heap and SCP.
+  					durga software will created in Heap, but no assignment, so it will be garbage collected. Software will be created in SCP and we have used "" string litteral.
+  			*****	then durgasolutions will be created only in Heap, bcoz runtime objects will be created in ONLY HEAP.
+  					durgasoftware and durgasolutions are not created in SCP, bcoz runtime objects wont create in SCP.
+  					Bcoz SCP meant for string constants not for runtime. so thats y it is called as String constant pool.
+  					
+                
+                
+                
+                ------------------------------------------------------------------------------------------------------------
+                
+                   
+                   
+                
+  		    	
+  				 
+  			 
+  			        		
+         		

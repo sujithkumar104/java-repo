@@ -16,6 +16,9 @@ public class Test3 {
 		l.add(25);
 		
 		List<Integer> l1 = l.stream().sorted().collect(Collectors.toList()); 
+		List<Integer> sujith = l.stream().filter(i -> i>6).sorted().collect(Collectors.toList()); 
+		System.out.println(sujith);
+
 		System.out.println(l1);
 		
 		List<Integer> l2 = l.stream().sorted((i1,i2) -> i1<i2 ? 1 : i1>i2 ? -1 : 0).collect(Collectors.toList());

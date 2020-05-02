@@ -6,14 +6,14 @@ import java.util.function.Function;
 public class Test5 {
 	
 	public static void main(String[] args) {
-		
+				
 		Function<Integer,Integer> f = n-> n*n;
 		
 		System.out.println(f.apply(5));
 		
 		Function<Integer, Integer> f1 = n -> {
 			int a = n * n;
-		    return a = a+5;
+			return a = a+5;
 		};
 		
 		System.out.println(f1.apply(5));
@@ -26,6 +26,7 @@ public class Test5 {
 		
 		c.accept(5);
 		c1.accept(100);
+		
 		
 	}
 
