@@ -323,12 +323,63 @@
   					Bcoz SCP meant for string constants not for runtime. so thats y it is called as String constant pool.
   					
                 
-                
+                    FINAL STATEMENT: STRING IS THREAD SAFE. IF ANY MODIFICATON IT WILL CREATE NEW OBJECT.
                 
                 ------------------------------------------------------------------------------------------------------------
                 
                    
-                   
+  34) StringBuffer :  
+  						If content is keep changing then should go for StringBuffer.
+  						Default SB has 16 charcters length.
+  						default capacity = 16;
+  						
+  						If CC reaches 16 then new with increased capacity will be created.
+  						NewCapacity = (current capacity+1) * 2;
+  						
+  						StringBuffer sb = new StringBuffer ("Sujith");
+  						syso(sb.capacity()); // 22;  Sujith.length + 16 ---
+  						
+  				--------------------------------------------------------------------------------------------------------------
+  				
+  				
+  35) Exception Handling:
+  
+  						Exceptions which are checked by the compiler whether the programmer handling it or not for smooth execution of program at runtime.These are checked exceptions.				
+  						
+  						RunTime exception: Exception which are not checked by compiler whether the programmer handling or not. these are unchecked exceptions.
+  						
+  						Partially Checked Exception -> Throwable and Exception (Because these are generic exception not specific).
+  						
+  						Finally vs Return statement:
+  						finally will get more priority. after finally only it returns.
+  						Only one place where finally wont execute -> i.e when system.exit(0) executes.
+  						system.exit(0) -> Normal Termination
+  						system.exit(-1) -> Abnormal Termination.
+  						
+  						* If exception happens inside catch block still finally executes and abnormal termination.
+  						*** Try, catch and finally  { } flower brackets are mandatory..
+  						
+  						Throws: it will throw the exception back to the calling method or JVM (DefaultException Handler).
+  						       Throws keyword is to convince the Compiler, better to use try catch.
+  						
+  						Checked Exceptions: If try block is having code to reading a file then only catch block with IO exception is valid, otherwise it is invalid
+  						Having only sop statemnt in try and in catch trying to catch IO except will give compilation error. This statement applies for all fullychecked exceptions.
+  						for Partially and unchecked exception even the code doesnt have also its fine you can write catch exception with un-checked and partially checked exceptions.
+  						
+  						*** Customized exception should be always un-checked exception.
+  								so we have to declare
+  									class MyTest extends RuntimeException 
+  									and NOT class MyTest extends Exception
+  									
+  									Checked exceptions are meant for Handling and if we want to display to the user, use Runtime Exception.
+  									
+  						If we use extends RunTimeException(un-checked) then no need to use throws in your method.
+  						If we use extends Exception(checked) then mandatory to use throws.
+  						
+  									
+  									
+  									
+  									  
                 
   		    	
   				 
