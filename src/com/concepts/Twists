@@ -378,11 +378,65 @@
   						
   									
   									
-  									
+  36) ExecutorService service = Executors.newFixedThreadPool(10);   // It will create only 10 threads and once one thread completes it execution, it will be back
+  																	// to pool and takes new task.
+  																	// 10 threads will run in parallel.
+  																	// 
+  				for(int i=0;i<100;i++){
+  						service.execute(new Task());
+  				}									
   									  
-                
-  		    	
-  				 
-  			 
+      ExecutorService service = Executors.newCachedThreadPool(); // based on the request it keeps creating threads in this case 100 threads.
+      
+      ExecutorService service = Executors.newSceduledThreadPool(10);
+        			service.scedule(new Task(), delay:15, SECONDS)
+      				service.scedule(new Task(), initialdelay:15, period:10, SECONDS)
+      
+      ExecutorService service = Executors.newSingleThreadExecutor(); // Only one thread executor, once one thread compltes then it takes next task.    
+  	
+  37) Design Patterns:
+  				1) Factory Design pattern -> Example: Plan -> Commercial, Business, industrial plan, Plan Factory
+  										  -> Best example: CQ-UX File checks
+  										  
+  				2) Abstract Design Pattern -> It is one layer above Factory design pattern.
+  										   -> Exmaple: Bank & loan -> Bank Factory, Loan Factory , Abstart Factory, Factory Creator-> Demo class.
+  					
+  				3) Single Design Pattern -> One instance and can be used anywhere same object
+  								         -> Spring framework used single design pattern (Example: logger, properties loading, Database connection)
+  								         ->	Double locking -> Volatile key work for multi core processors -> Multi threading.
+  								         
+  				4) Proto-type Design Pattern -> Cloning of an existing object instead of new object and cloned object can be customised as per requirement.
+  											 -> Object creating is clostly, we can use this.
+  											 
+  				5) Adaptar Pattern -> This pattern is also known as Wrapper.
+  								   -> This allows two or more previous incompatible objects to interact.
+  								   -> Example: Bank -> Credit Card -> BankDetails 
+  								   -> Based on Bank account find the employee is salaried, and check eliglibe for credit card.
+  								    							 				         					   					  
+  				6) Bridge Pattern -> This Bridge pattern says that just decouple the functional abstraction from the implementation so that two can vary independently.
+  								  -> It enables the seperation of implementation from the interface.
+  								  -> It improves the extendability. Decouple the abstraction with implemenation.
+  								  -> It hides implementation details from the client.
+  								  -> SHAPE -> Traingle, Square, Color
+  								  -> Colour and Triangle, Square will be independent and will bridge both to in Shape...
+  								  -> Shape will have Draw and colour both combining together here..
+  								  
+  				7) Fasaad pattern ->
+  								  -> Fasaad pattern is a unified and simplied interface.
+  								  -> Client will be not be known complex functionality.
+  								  -> Example : Flipkart
+  								  
+  	38) HashMap -> Java 8 features is in the bucket if it is more than 8 nodes then it will convert to Balanced tree.
+  					Map -> ConcurrentHashMap
+  					       Syncronized Hashmap
+  					       Hashmap
+  					       HashTable
+  					       Identity Hashmap
+  					       EnumHashMap
+  					       LinkedHashMap
+  					       Treemap.
+  					       
+  					       							  		  	 
+  	39) Multi-Threading:		 
   			        		
          		
