@@ -18,6 +18,7 @@ public class Test {
 		t.setPriority(10);
 		t.start();
 		System.out.println("Main Thread: "+Thread.currentThread().getPriority());
+		
 	}
 	
 }
