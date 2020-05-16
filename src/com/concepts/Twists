@@ -441,5 +441,151 @@
   					       
   					       							  		  	 
   	39) Multi-Threading:		 
+  					Thread : A separate flow of execution is called a Thread.
+  					1) Extending a Thread class
+  					2) Implementing a Runnable Interface (this is best, bcoz of multiple inheritance is not applicable)
+  					
+  					JVM starts the run method, if we call start method
+  					
+  					Start() Method does:
+  					1) Register the thread with thread schedular.
+  					2) Perform all other mandatory activities.
+  					3) Invoke run() method.
   			        		
-         		
+         		    If we DONT override run() method in your class, it will call Thread class run method and it doesn't have anything and compiles and runs fine. But no result. No use.
+         		    
+         		    Thread Life Cycle: (MT t = MT()) New/Born  (t.start())-> Ready/Runnable(Thread Scedhudlar allocates) -> Running(Run method will run) -> Dead 
+         		    
+         		    Thread t = new Thread();
+         		    Thread t = new Thread(Runnable r);
+         		    Thread t = new Thread(String name);
+         		    Thread t = new Thread(ThreadGroup g, String name);
+         		    
+         		    Thread Priority  -> 10 max priority and 1 min priority
+         		    By Default : Norm Priority (5)
+         		    Main thread default priority 5 and all children will get same 5 priotity by default, but we can change if we want.
+         		    
+         		    Prevent Thread Execution
+         		    1) Yield -> when t.yield() called, it pauses the current thread and gives chance to the rest of waiting threads of same priority. If there is no other threads having 
+         		      priority then the current thread only will continue its execution.
+         		    
+         		    2) Join()
+         		    		If a thread wants to wait until to complete some other thread, then we should go for Join method.
+         		    		if t1 thread runs t2.join(); then t1 will wait until t2 thread completes its execution.
+         		    		If main thread executes t1.join that means main thread will wait until t1 thread completes its execution
+         		    		If t1 thread has to wait for main thread to complete, then we need to first get main thread variable to call mainThread.join(),
+         		    		so we have to create static varible in your thread t1 class and assign it in main thread class and use it.
+         		    		
+         		   3) sleep() - to pause the program for sometime.
+         		   
+     40) Multi-Threading:
+      				Synchronization:
+      					It is applicable for methods and blocks. It is a modifier.
+      					In Synchrinonized methods are blocks, JVM will take care of aquiring the lock and releases the lock.
+      					
+      					There are two types of locks
+      					1) Object level lock
+      					2) Class level lock.
+      					
+      					1) Object lock:
+      								If two threads trying operting on same object then lock is compulsory.
+      								one gets the lock, and other has to wait.
+      								If other thread trying to access any other non -synch methods then no lock reqruired.
+      								But if t2 is trying to access synch method different than t1 accessing synch method,
+      								then for t2 requires a lock. It is not possible even both are accessing differnet synch methods.
+      								Object level lock will be applicable for all synch methods. Once lock is acquired then if some other
+      								threads trying to operate on same object and differnt synch methods also they cannot until tehy have lock.
+      								
+      					2) Class level lock:
+      								This lock is specific to static synch methods.
+      								since it is static, it is belongs to Class.
+      								Threads can aquire on Class level and another object level. It is OKAY.
+      								To access static synch then CLass level lock is required and other threads trying to access other static synch methods, lock is required.
+      								Non synch methods any time it can be accessable. without any locks.
+      								
+      								
+      				   Inter Thread communication:
+      				   Two threads can communicate each other by using wait(), notify() and notifyall().
+      				   
+      				   Wait(), notify and notifyall are in object class, not in thread class:
+      				   	Bcoz, we call wait() , notify on objects. like student.wait(), so if we keep in Thread, objects cannot access,
+      				   	so they have put in Object class so that any class can use this. But these methods are used only w.r.t to Threads.
+      				   	
+      				   	Wait(), notify and notifyall should be used in Synch method or blocks only, we cannot use them normally.
+      				   	If we call somewhere else then we will get IllegalMonitor state exception.
+      				   	So lock is important when we use wait notify..
+      				   	Once you call wait, immeditely it releases the lock it goes into waiting state.
+      				   	Once you call notify, not immediately but it releases the lock.
+      				   	
+      				   	Object.wait(), it releases the lock and it goes to waiting state. and once it gets notified it immediately will not go Runnable state, 
+      				   	rather it goes to another waiting state to get the lock, once it gets the lock then it goes to Runnable state and based on Thread Scedular, it gets change to execute.
+      				   	
+      				   	Only these tree methods can release the lock, no other methods will release the lock.
+      				   	 	 						 
+      		Daemon Threads:		    		 
+         		      1) Garbage collector
+         		      2) Attach listener
+         		      3) Signal Dispather
+         		     
+         		      If the main thread completes then all the daemon threads also will be terminated.
+         		     
+         	Thread Group:
+         				      
+         				ThreadGroup tg = new ThreadGroup("First Group") 
+         				Thread t1 = new Thread(tg,"First Thread")
+         				tg.setPriority(10);
+         				we can see tg prority to set for all threads at a time.
+         				
+    41) Concurrent Package:
+    				Problems with Synch keyword (methods are blocks)
+    				1.5 java has introduced Concurrent package:
+    				
+    				1) We have flexibilty to trylock.
+    				2) Fairness policy
+    				3) Based on Fairness policy higest waiting time thread will get change.
+    				4) No API to list all waiting threads earlier, now with concurrent we have.
+    				5) Synch Methods and Synch blocks can be used only by itself (inside one method), but not mutiple methods.
+    				
+    		Lock(I) and ReentrantLock (IMplementation class)
+    		   Lock lock = new ReentrantLock();    //fairness policy false by default.
+    		   Lock lock = new ReentrantLock(true); //fairness policy true
+    				lock.lock() and in finally lock.unlock.
+    				
+    		We have try.lock() and try.lock(long l, TimeUnit t)  -> t.NANOSEC, t.SECONDS, t.MINUTES
+    		We have void getHoldCount(),
+    			    boolean isHeldByCurrentThread()
+    			    boolean isFair()
+    			    boolean isLocked()
+    			    Thread getowner
+    			    Collection hasQueuedThreads.
+    			    
+    		
+    		Thread Pools:
+    				ExecutorService best option
+    				
+    				ExecutorService service = Executors.newFixedThreadpool(10); // So it automatically creates 10 threads
+    				no need to create Thread t1 = new Thread (), t1.start() -> Thread t2 .... t10 not required.
+    				
+    				ExecutorService will create the threads for us and runs and once one Thread completes it, goes back to pool for next task.
+    				Service.submit(job);
+    				
+    				once it completed then at the end service.shutdown() to close thread pool.
+    				
+    				Callable -> If we need to return anything, call method will return Object()
+    				Future f = service.submit(job); (callable return can be captured in future in executor service)
+    				Runnable is void run method   				     				    
+         		    
+         	ThreadLocal:
+         	      Thread local is to store values per thread basis.
+         	      Thread can access its own thread variables and not other thread variables.
+         	      each thread can create its own varibles and store in thread local.
+         	      
+         	      
+         	      
+   42) Volatile Keyword:
+   				Volatile is yet another way like synchrized of making class thread safe. It means multiple threads at the same time can access without any problem.
+   				synchrized keyword has mutual exlucsion and visiblity, bcoz only one thread access synch methods so other threead will know what changes happened.
+   				But in some cases we require only visibility features, in that case using synchrinzed will overkill its scality problems.
+   				So volatile will come to rescue, So if 2  threads are operating on sharedObj, then one thread update will not be visible to other if both are running 
+   				in differnet processors, so volatile will solve these problems, once anyupdate will make sure it will get updated in main memory instantly.So other thread will get new values. 
+   				      	      	    
