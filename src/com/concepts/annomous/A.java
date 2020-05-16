@@ -2,7 +2,7 @@ package com.concepts.annomous;
 
 public interface A {
 	
-	void m1();
+	public void m1();
 	
 	void m2();
 

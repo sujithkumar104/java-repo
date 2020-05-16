@@ -232,6 +232,7 @@
  			        		
          		 
   30) Streams: 
+             Stream is an interface
   			 IO streams and java 8 streams are NOT SAME.
   			 Stream can be used in list.
   			 Filter is used to filter some results. (Conditional filter -> Predicate) list.stream.filter
@@ -244,6 +245,8 @@
   			 Stream(), filter(), map(), collect(), sorted()
   			 sorted(comparator), min(comparator), max(comparator)
   			 foreach(), toarray(), stream.of
+  			 
+  			 flatmap() should be used in multidimensional arrays.
   			 
   31) Java.time package:
   			LocalDate date = LocalDate.now();

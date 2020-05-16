@@ -21,6 +21,8 @@ public class Stream11 {
 	     Arrays.stream(intarray).sum();
 	     Arrays.stream(intarray).average();
 	     
+	     
+	     
 	     IntStream.of(intarray).sum();
 	     
 	}
