@@ -1,8 +1,6 @@
 package com.concepts.sortalgo;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class BubbleSort {
 	
@@ -57,9 +55,9 @@ public class BubbleSort {
 	public static void main(String[] args) {
 		int[] arr = new int[] {5,1,4,2,8};
 		print(arr);
-		int[] newarr = sort(arr);
-		print(newarr);
-		//print(optimizedSort(arr));
+		//int[] newarr = sort(arr);
+		//print(newarr);
+		print(optimizedSort(arr));
 	}
 
 }
