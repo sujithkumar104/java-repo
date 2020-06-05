@@ -9,7 +9,7 @@ public class StringTest {
 		String s2 = "Sujith Kumar";
 		String s3 = s1;
 		
-		System.out.println(s1 == s2);
+		System.out.println(s1 == s2); 
 		System.out.println(s1 == s3);
 		
 		String a = "sujith kumar";

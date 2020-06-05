@@ -14,6 +14,7 @@ public class BiConsumerDemo {
 		
 		BiConsumer<Integer, Integer> c2 = (a, b) -> System.out.println(a+b);
 		c2.accept(2, 5);
+		
  		
 	}
 

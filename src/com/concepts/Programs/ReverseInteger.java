@@ -10,7 +10,9 @@ public class ReverseInteger {
 			num = num/10;
 			sb.append(temp);
 		}
-		return Integer.valueOf(sb.toString()).intValue();
+		
+		return Integer.parseInt(sb.toString());
+		//return Integer.valueOf(sb.toString()).intValue();
 	}
 	
 	public static void main(String[] args) {

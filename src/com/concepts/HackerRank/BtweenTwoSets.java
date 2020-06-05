@@ -3,6 +3,8 @@ package com.concepts.HackerRank;
 public class BtweenTwoSets {
 
 	// LEAST COMMON MUTIPLE
+	// 2 - 4  6
+	// 3 - 3  6
 	public static int findLCM(int a, int b) {
 		int lcm= (a>b) ? a: b;
 		while(true) {
@@ -27,6 +29,10 @@ public class BtweenTwoSets {
 		return gcd;
 		
 	}
+	
+	
+	// LCM - LEAST COMMON MULTIPLE 
+	// GCD - GREATEST COMMON DIVISOR
 
 	public static void main(String[] args) {
 

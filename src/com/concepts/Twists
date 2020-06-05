@@ -1,3 +1,25 @@
+
+JAVA DATA STRUCTURES -> LINKED LIST, ARRAY LIST, STACK, QUEUE & HASHMAP
+JAVA ALGORITHMS -> BUBBLE SORT, QUICK SORT
+
+
+Class ->  A class is a user defined blueprint from which objects are created.
+		  A class typically have modifiers, classname, body	
+Object -> A object is an instance of a class. Object have identity, state and behaviour.
+			Identity - Name of the object
+			State ->   Breed, age, colour
+			Behaviour -> Bark, sleep
+			
+Inheritance - Inheritance is aquiring parent properties. Inherit the features of other classes.
+.Abstarction - Showing necessary details to clients and hiding non essential things. A car can shown as a car to the user, not required how internal things works.
+			   can be acheived using Abstarct class and interfaces.   
+Data Hiding - Data hiding is showing shielding the data members using access modifiers. 
+Encapsulation - Wrappping up the data into Single unit. Abstraction + Data hiding is called Encapsulation  -> POJO classes
+Polymorphisym - Polymorphism is many -> Having many forms and is invoked based on type. Differentiate between entities with the same name effectively.
+				Overloading and overriding
+
+
+
 1) If two classes present, one parent class and child class and has IS-A relationship and have a test class
    P has m1() method, and C has m2() method
    where you create a object like P p = new C(); then you cannot access p.m2() method.
@@ -55,7 +77,7 @@
      
  12) Abstract at class level:   Abstract class cannot be final. Abstract class cannot create object refer 11 point.
      Abstract at method level:  Abstract method should not have implementation. Abstract method cannot be final or static or private. final means cannot override. static belongs to class.
- 	 Constructors at  Abstract classes: Abstract classes can have constructors, refer point 11 for more details.
+ 	 Constructors at  Abstract classes: Abstract classes can have constructors, refer point +11 for more details.
  	 
  			       
  13) Interfaces: no implementation
@@ -241,7 +263,7 @@
   			 Stream<Integer> stream = Stream.of(1,2,3,4,5,6,7,8,9);
   			 Stream<Integer> stream = Stream.of( new Integer[]{1,2,3,4,5,6,7,8,9} );
   			 
-  			 Integer[] evenNumbersArr = stream.filter(i -> i%2 == 0).toArray(Integer[]::new); -> list to array
+  			 Integer[] evenNumbersArr = list.stream.filter(i -> i%2 == 0).toArray(Integer[]::new); -> list to array
   			 Stream(), filter(), map(), collect(), sorted()
   			 sorted(comparator), min(comparator), max(comparator)
   			 foreach(), toarray(), stream.of
@@ -588,4 +610,32 @@
    				But in some cases we require only visibility features, in that case using synchrinzed will overkill its scality problems.
    				So volatile will come to rescue, So if 2  threads are operating on sharedObj, then one thread update will not be visible to other if both are running 
    				in differnet processors, so volatile will solve these problems, once anyupdate will make sure it will get updated in main memory instantly.So other thread will get new values. 
-   				      	      	    
+  
+  
+   43) Angular
+   
+   44) SQLS
+   			Normalization
+   			De-Normalization
+   			
+   			Normalization techiniques
+   			 1) Duplicates records to be deleted
+   			 2) Do not store lot many column in the table, rather split the tables and have a relation b/w two tables primary and forign key 
+   			 3) Remove the columns which are not dependent on primary key.
+   			 
+   			 
+   			For faster retrival:
+   			 1) Index 
+   			 2) Unique index
+   			 3) Clustered index
+   			 4) Non-clustered index. 
+   	
+   			JOINS
+   			
+   			UNION -> DISTINCT VALUES
+   			UNION ALL -> ALL VALUES (INCLUDES DUPLICATES)
+   					 				      	      	    
+   			 				      	      	    
+   			 				      	      	    
+    
+    			 				      	      	    

@@ -10,7 +10,8 @@ public class Sorting {
 	
 	static String[] bigSorting(String[] unsorted) {
 		
-	    List<String> bigList = Stream.of(unsorted).parallel().map(s -> new BigInteger(s)).sorted().map(b->b.toString()).collect(Collectors.toList());	
+	    List<String> bigList = Stream.of(unsorted).parallel().map(s -> new BigInteger(s)).sorted().map(b->b.toString()).collect(Collectors.toList());
+	    bigList.stream().forEach(System.out::println);
 	    return bigList.toArray(new String[bigList.size()]);
 
 		

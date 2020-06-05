@@ -16,6 +16,12 @@ public class AbstractDesignDemo {
 		  AbstarctFactory af2 = FactoryCreator.getFactory("LOAN");
 		  Loan loan1 = af2.getLoan("Home");
 		  loan1.getInterestRate();
+		  
+		  System.out.println(2306996%15);
+		  
+		  // \u000d System.out.println("Comment executed");
 	}
+	
+	
 
 }

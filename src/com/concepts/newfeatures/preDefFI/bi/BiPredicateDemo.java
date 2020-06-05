@@ -14,5 +14,7 @@ public class BiPredicateDemo {
 		// Two Arguments Predicate
 		BiPredicate<Integer, Integer> p1 = (a,b) -> (a+b)%2 == 0;
 		System.out.println(p1.test(5, 11));
+		
+		
 	}
 }

@@ -17,14 +17,14 @@ public class FindSingleNumber {
 		
 		for(int a:arr) {
 			for(int b: dup) {
-				
+				System.out.println(b);
 			}
 		}
 	}
 
 	public static void main(String[] args) {
 		int[] arr = new int[] { 1, 1, 2, 2, 3, 4, 4, 5, 5 };
-
+        find(arr);
 	}
 
 }
