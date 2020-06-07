@@ -24,6 +24,8 @@ public class FindMissingNumber {
 		}
 
 		missing.forEach(System.out::println);
+		
+		
 
 	}
 
@@ -35,7 +37,7 @@ public class FindMissingNumber {
 
 	public static void main(String[] args) {
 
-		int[] array = new int[] { 1, 2, 3, 5, 6, 7, 9, 10 };
+		int[] array = new int[] { 1, 2,3 };
 		findMissing(array);
 		findMissingOptimzed(array);
 	}

@@ -20,7 +20,7 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
 
 
 
-1) If two classes present, one parent class and child class and has IS-A relationship and have a test class
+1) If two are classes present, one parent class and child class and has IS-A relationship and have a test class
    P has m1() method, and C has m2() method
    where you create a object like P p = new C(); then you cannot access p.m2() method.
    
@@ -52,7 +52,7 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
  				
  				
  8) Overriding ->  with respective to Static methods.
- 				   Overriding concept for static methods is not present, infact if we create a same method in child, then'
+ 				   Overriding concept for static methods are not present, infact if we create a same method in child, then'
  			       it is called as method hiding.
  			       parent and child class has static void m1() method. P p = new C(); p.m1() -> would call parent m1() method.
  			       if non-static method then it is child method. but here it is parent m1 method would be invoked.
@@ -82,13 +82,13 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
  			       
  13) Interfaces: no implementation
                  all methods in an interface are public and abstract
-                 any field (member) declared in interfaceis by default public static and final.
+                 any field (member) declared in interface is by default public static and final.
  			     Example: Created an Interface called Check and has one method validate, so 10 checks just implements Check(I) and
  			     write validate method implementation. While creating an object, based on check create object dynamically and pass that
  			     object to execute corresponding check.
  			     
  14) Wrapper classes
-                Converting string to primitive datatypes
+                Converting string to primitive data types
                 parseInt(String x);
                 parseDouble(String x);
                 

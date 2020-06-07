@@ -1,5 +1,7 @@
 package com.concepts.Programs;
 
+import java.util.List;
+
 public class FindSingleNumber {
 
 	private static void find(int[] arr) {
@@ -21,10 +23,42 @@ public class FindSingleNumber {
 			}
 		}
 	}
+	
+	
+	static int findSingle(int ar[], int ar_size) 
+    { 
+        // Do XOR of all elements and return 
+        int res = ar[0]; 
+        for (int i = 1; i < ar_size; i++) {
+            res = res ^ ar[i]; 
+        }
+      
+        return res; 
+    } 
+	
+	static int MyfindSingle(int ar[], int ar_size) 
+    { 
+        int res = ar[0]; 
+        for (int i = 1; i < ar_size; i++) {
+            res = res ^ ar[i]; 
+        }
+      
+        return res; 
+    } 
+	
+	static int MyfindSingle(int[] arr) 
+    { 
+          int res = arr[0];
+          for(int i=1;i<arr.length;i++) {
+        	  res = res ^ arr[i];
+          }
+		return res;
+    } 
+
 
 	public static void main(String[] args) {
-		int[] arr = new int[] { 1, 1, 2, 2, 3, 4, 4, 5, 5 };
-        find(arr);
+		int[] arr = new int[] { 2,2,3,2,2,2,2 };
+		System.out.println(findSingle(arr, arr.length));
 	}
 
 }

@@ -9,6 +9,8 @@ public class SumofMinMax {
 
         int[] arr1= IntStream.of(arr).sorted().toArray();
         
+        System.out.println(arr1.length);
+        
         int min =0;
         int max =0;
         for(int i=0;i<arr1.length-1;i++) {

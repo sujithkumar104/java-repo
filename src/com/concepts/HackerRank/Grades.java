@@ -44,7 +44,7 @@ public class Grades {
 	}
 
 	public static void main(String[] args) {
-		List<Integer> list = Arrays.asList(23,80,96,18);
+		List<Integer> list = Arrays.asList(23,80,96,18,43);
 				
 		System.out.println(gradingStudentsOpti(list));
 		

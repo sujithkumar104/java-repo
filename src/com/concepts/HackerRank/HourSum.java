@@ -10,6 +10,8 @@ public class HourSum {
 	// Complete the hourglassSum function below.
 	static int hourglassSum(int[][] arr) {
 		
+		System.out.println(arr.length);
+		
 		if (R < 3 || C < 3) 
 	        return -1; 
 		
@@ -27,6 +29,6 @@ public class HourSum {
 	}
 
 	public static void main(String[] args) throws IOException {
-
+		//hourglassSum(new int[][] { { 1, 2 }, { 3, 4, 5 } } );
 	}
 }
