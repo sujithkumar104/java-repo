@@ -1,0 +1,102 @@
+
+
+ t1 -> Venue fixing
+ 
+ t2 -> priniting wedding cards
+ 
+ t3 ->  distribution of wedding cards
+ 
+ 
+ t2 ->  t1.join();  // this particular line is executed by t2 thread, t2 will go into waiting state and will wait for t1 to complete. After t1 completes then t2 will continue
+ 
+ t3 ->  t2.join(); // this particular line is executed by t3 thread, t3 will go into waiting state and will wait for t2 to complete. after t2 completes then t3 will continue
+ 
+ 
+		t1.join(3000); // 3secs
+		
+		
+		main thread 10 secs -> t1.intrupt, completed dead state -> who is responble for intruppting child ?? JVM will intruppt child thread wasted
+		
+		
+		child thread will runs 60 -> sleeping  after 40secs execution -> this will not go  60 
+		
+		
+		
+		m1()
+		m2()
+		m3() -> locking
+		
+		
+		
+		
+		
+		------------------->
+		      // lock 
+		      syncrhonized m1(){
+			     executing here
+			  }
+			  //lock
+			  syncrhonized m2(){
+			  
+			  }
+			  
+			  syncrhonized m50(){
+			  
+			  }
+			  
+			  // no lock required
+			  m3(){
+			  
+			  }
+			  
+			  d -> same object -> object level lock
+			  t1 ->  m1() -> got lock and it is executing (in progress) -> t1 -> lock of object d
+			  t2 ->  m1() -> lock is already with t1 ->  so t2 has to wait until it relaeas the lock.
+			  t3 ->  m2() -> lock is avaible with t1 ->  so t3 also has to wait until it releases the lock.
+			  t4 ->  m3() -> t4 will execute normally. 
+			  
+			  
+			  d1 -> t1
+			  d2 -> t2
+			  d2 -> t3
+			  
+			  
+			  // same object d
+			  static syncrhonized m1() -> class level lock
+			  static syncrhonized m2() -> class level lock
+			  static m3()              -> no lock
+			  syncrhonized m4()        -> object level lock
+			  syncrhonized m5()        -> object level lock
+			  m6()					   -> no lock
+			  
+			  t1->  m1 -> t1 requires class level lock -> t1 will get class level lock and executing
+			  t2 -> m1 -> t2 has to wait until t1 releases the lock. t2 will be in waiting state
+			  t3 -> m2 -> t3 has to wait until t1 releases the lock. t2 will be in waiting state
+			  t4 -> m3 -> t4 will execute normally
+			  t5 -> m4 -> it gets object level lock and start executing
+			  t6 -> m6 -> t6 will execute normally
+			  t7 -> m5 -> t7 will wait until t5 releases the lock.
+			  
+			  
+			  
+			  // different objects
+			  Object level lock -> two different objects -> then it is performing lock is required no threads will waiting for lock -> t1 -> d1 -> t2 -> d2 -> t1 and t2 execute in parallel
+			  
+			  Class level lock ->  two different objects -> we are getting consistent results. -> t1 -> d1 -> t2 -> d2 -> but still t2 has to wait bcoz of class is only one
+			  
+			  
+			  Display                  Download
+			  
+			  Upload.class             Download.class
+			  
+			  
+			  
+			  -> there is no other methods where thread releases the lock. only in wait, notify and notifyall , thread releases the lock.
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  

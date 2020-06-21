@@ -10,6 +10,7 @@ public class Numbers {
 		List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
 		int value = list.stream().reduce(1, (a, b) -> a * b).intValue();
 		return (value > 0) ? 1 : (value < 0) ? -1 : 0;
+		
 	}
 
 	public static void main(String[] args) {

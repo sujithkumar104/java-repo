@@ -34,6 +34,7 @@ public class Kangaroo {
 
 	public static void main(String[] args) {
 		   System.out.println(kangarooOptim(0, 3, 4, 2));
+		   
 	}
 
 }

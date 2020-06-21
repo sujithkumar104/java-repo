@@ -10,7 +10,7 @@ public class FindMissingNumber {
 	private static void findMissing(int[] arr) {
 
 		List<Integer> missing = new ArrayList<>();
-
+		
 		for (int i = arr[0]; i <= arr[arr.length - 1]; i++) {
 			boolean found = false;
 			for (int value : arr) {
@@ -37,7 +37,7 @@ public class FindMissingNumber {
 
 	public static void main(String[] args) {
 
-		int[] array = new int[] { 1, 2,3 };
+		int[] array = new int[] { 1, 2,3,4,6 };
 		findMissing(array);
 		findMissingOptimzed(array);
 	}

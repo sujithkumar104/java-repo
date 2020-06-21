@@ -15,6 +15,9 @@ public class Stream7 {
 		Map<String, Integer> map = personlist.stream()
 							       .collect(Collectors.toMap(x->x.getName(), x->x.getId()));
 		
+		
+		Map<Integer, List<Person1>> map1 = personlist.stream().collect(Collectors.groupingBy(x->x.getAge()));
+		
 		System.out.println(map);
 	}
 

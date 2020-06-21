@@ -6,10 +6,11 @@ public class ThreadB extends Thread{
 
 	public void run() {
 		synchronized (this) {
-			for(int i=0;i<5;i++) {
+			for(int i=0;i<100;i++) {
 				total = total+i;
 		    }
-			this.notify();
+			this.notify(); // then here also it releases the lock, but not immedialtely
+			System.out.println("child thread completed");
 	   }
 	}
 }

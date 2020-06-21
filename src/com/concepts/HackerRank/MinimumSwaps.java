@@ -30,4 +30,28 @@ public class MinimumSwaps {
 
 	}
 
+	static int minimumSwaps1(int[] arr) {
+
+		boolean visited[] = new boolean[arr.length];
+
+		int swap = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			int count = 0;
+			int j = i;
+			while (!visited[j]) {
+				visited[j] = true;
+				j = arr[j] - 1;
+				count++;
+			}
+
+			if (count != 0) {
+				swap += count + 1;
+			}
+		}
+
+		return swap;
+
+	}
+
 }

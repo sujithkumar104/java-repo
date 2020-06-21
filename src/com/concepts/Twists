@@ -11,14 +11,12 @@ Object -> A object is an instance of a class. Object have identity, state and be
 			Behaviour -> Bark, sleep
 			
 Inheritance - Inheritance is aquiring parent properties. Inherit the features of other classes.
-.Abstarction - Showing necessary details to clients and hiding non essential things. A car can shown as a car to the user, not required how internal things works.
+Abstarction - Showing necessary details to clients and hiding non essential things. A car can shown as a car to the user, not required how internal things works.
 			   can be acheived using Abstarct class and interfaces.   
 Data Hiding - Data hiding is showing shielding the data members using access modifiers. 
 Encapsulation - Wrappping up the data into Single unit. Abstraction + Data hiding is called Encapsulation  -> POJO classes
 Polymorphisym - Polymorphism is many -> Having many forms and is invoked based on type. Differentiate between entities with the same name effectively.
 				Overloading and overriding
-
-
 
 1) If two are classes present, one parent class and child class and has IS-A relationship and have a test class
    P has m1() method, and C has m2() method
@@ -27,7 +25,7 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
 2) Auto Promotion in overloading
 
    Order: byte -> short
-                         -> Int -> long -> float -> double  
+                         -> Int -> long -> float -> double
           char  ->         
           
  3) Overloading: If String and Object accepting two different method arguments are present; same method name, if you pass null
@@ -412,6 +410,7 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
   				}									
   									  
       ExecutorService service = Executors.newCachedThreadPool(); // based on the request it keeps creating threads in this case 100 threads.
+      							// based on the requests it will create threads, and if thread is there idle for 60 sec, it will kill that thread. 						
       
       ExecutorService service = Executors.newSceduledThreadPool(10);
         			service.scedule(new Task(), delay:15, SECONDS)
@@ -470,11 +469,18 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
   					JVM starts the run method, if we call start method
   					
   					Start() Method does:
-  					1) Register the thread with thread schedular.
+  					1) Register the thread with thread schedular. creates a new thread
   					2) Perform all other mandatory activities.
   					3) Invoke run() method.
   			        		
          		    If we DONT override run() method in your class, it will call Thread class run method and it doesn't have anything and compiles and runs fine. But no result. No use.
+         		    
+         		    
+         		     MyRunnable r = new MyRunnable(); 
+		 			 Thread t1 = new Thread(r); 
+		             t1.start(); // new child thread will be created -> main is executing this.
+		             t1.run();   // it will call thread class run method -> target.run(); -> no new thread, 
+		             				but run method in myrunnable would be invoked by main thread 
          		    
          		    Thread Life Cycle: (MT t = MT()) New/Born  (t.start())-> Ready/Runnable(Thread Scedhudlar allocates) -> Running(Run method will run) -> Dead 
          		    
@@ -526,6 +532,12 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
       								Non synch methods any time it can be accessable. without any locks.
       								
       								
+      		  // different objects
+			  Object level lock -> two different objects -> then it is performing lock is required no threads will waiting for lock -> t1 -> d1 -> t2 -> d2 -> t1 and t2 execute in parallel
+			  
+			  Class level lock ->  two different objects -> we are getting consistent results. -> t1 -> d1 -> t2 -> d2 -> but still t2 has to wait, bcoz of class is only one
+			  
+			  				
       				   Inter Thread communication:
       				   Two threads can communicate each other by using wait(), notify() and notifyall().
       				   
@@ -542,7 +554,7 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
       				   	Object.wait(), it releases the lock and it goes to waiting state. and once it gets notified it immediately will not go Runnable state, 
       				   	rather it goes to another waiting state to get the lock, once it gets the lock then it goes to Runnable state and based on Thread Scedular, it gets change to execute.
       				   	
-      				   	Only these tree methods can release the lock, no other methods will release the lock.
+      				   	Only these three methods can release the lock, no other methods will release the lock.
       				   	 	 						 
       		Daemon Threads:		    		 
          		      1) Garbage collector
@@ -595,7 +607,10 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
     				
     				Callable -> If we need to return anything, call method will return Object()
     				Future f = service.submit(job); (callable return can be captured in future in executor service)
-    				Runnable is void run method   				     				    
+    				Runnable is void run method   		
+    				if we use Future.get then it blocks or lock the thread and will allow only one thread to execute.
+    				Future f = service.submit(job); // f.get(); will block until we get result and in for loop since this step is not
+    				compelted, it will wait to complete that and for loop continues.	     				    
          		    
          	ThreadLocal:
          	      Thread local is to store values per thread basis.
@@ -636,6 +651,11 @@ Polymorphisym - Polymorphism is many -> Having many forms and is invoked based o
    			UNION ALL -> ALL VALUES (INCLUDES DUPLICATES)
    					 				      	      	    
    			 				      	      	    
-   			 				      	      	    
+   		SELECT FullName, ManagerId, DateOfJoining, City, COUNT(*)
+		FROM EmployeeDetails
+		GROUP BY FullName, ManagerId, DateOfJoining, City
+		HAVING COUNT(*) > 1;	 				      	      	    
     
+    			 				      	      	    
+       SELECT min(salary) from employee where salary in (select * from employee order by salary limit 3);   			 				      	      	    
     			 				      	      	    

@@ -14,7 +14,7 @@ public class Stream3 {
 		 
 		 List<Integer> personLis1 = personlist.stream()
 				 					.map(p -> p.getAge() +10).collect(Collectors.toList());
-				 					
+		 				 					
 		 System.out.println(personLis1);
 		 		 
 		 // REDUCE will accumalate and gives the result of all

@@ -1,0 +1,98 @@
+Multi Threading:
+
+
+1) Intro
+2) The ways to define a thread
+
+	a) By extending thread class
+	b) By implementing Runnable Interface
+	
+3) Getting and setting name of thread
+
+4) Thread priorities
+
+5) Methods to prevent thread execution
+		a) yield() -> static native void yield()
+		b) join()  -> final void join()
+		3) sleep() ->  static native void sleep
+		
+6) Synchronization -> 
+            Synchronization is applicable for methods and blocks.  Not for classess and varibles.
+			Synchronized is modifier
+			
+			Synchronized block
+			
+		
+
+7) Inter thread communucation ->  wait(), notify and notifyAll();
+
+		wait() -> 
+	    notify() ->
+		notifyall() ->
+		
+		--------------------------------------------------------------------------------------
+
+8) Dead lock -> 
+
+9) Deamon threads -> Gargabe collector, attach listner, Singal dispacther, 
+
+		these are to give support for user defined threads. when user defined threads completes in all the deamon threads wll also get termiated.
+		
+10) Thread Groups
+
+			system ->  main  -> user defn
+			system -> finalizer, dispath listner, 
+			
+			
+******
+11) Thread pools  -> Executor service -> 4 thread pools fixed, cached, sceduled, single thread
+
+	Java.util.concurrent
+	
+		Lock (Interface)
+		Reentrant lock (implementation class)
+		
+		ReentrantLock
+		
+		lock.lock(); -> to get the lock
+		lock.tryLock(); -> to check the lock is availble or not
+		lock.tryLock(9000, TIMEUNIT.MILLISECONDS);
+		lock.interriptilty() -> if thread is waiting to get lock, and that thread is interruptted then it wont get lock.
+		lock.unlock() -> finally to unlock
+		lock.getHoldCOunt()
+		lock.isHeldBycurrentThread();
+		getQueuelength()
+		getQueuedThreads
+		isLocked()
+		isFair()
+		getOwner
+		
+		
+		
+
+
+12) Multi Threading Enchancemets
+	a) Reentrant lock
+	
+13) Thread local -> not sure on this
+
+14) Countdown latch -> one program
+ 
+14) Cyclic barrier  -> one program
+
+15) Phaser -> 
+	
+	
+	t1, t2, t3 threads
+	
+	t1, t2 and t3 prio - 5
+	t1.yield(); // t1 will go to runnable state and it will give chance to other thread of same priority. t2, and t3 will execute. t1 thread scedular will allocate to execute for t1. 
+	
+	t1 7, t2 and t3 prio - 5
+	t1.yield(); // t1 will go to runnable state and since there are no other threads of same priority it will come runnable and start running.
+	
+	
+	t1 -5, t2 and t3 10
+	
+	
+	

@@ -9,7 +9,7 @@ public class Runner {
 		list.add("Kumar");
 		list.add("ABC");
 		list.add("XYZ");
-		list.remove(0);
+		list.remove(1);
 		 
 		list.show();
 	}
